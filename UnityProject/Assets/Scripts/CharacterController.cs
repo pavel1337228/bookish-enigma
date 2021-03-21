@@ -5,16 +5,23 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Transform _pointTransform;
-    private float _horizontal, _vertical;
+    private float _horizontal, _vertical, _moveAmount;
+    private Animator _anim;
 
     [SerializeField] private float _rotationSpeed = 0.1f;
 
     private Vector3 _rotationDirection;
     private Vector3 _moveDirection;
 
+    private void Start()
+    {
+        _anim = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         Moving();
+        PlayAnimation();
     }
 
     public void Moving()
@@ -25,7 +32,6 @@ public class CharacterController : MonoBehaviour
         Vector3 moveDir = _pointTransform.forward * _vertical;
         moveDir += _pointTransform.right * _horizontal;
         moveDir.Normalize();
-        transform.Translate(moveDir * Time.deltaTime);
         _moveDirection = moveDir;
         _rotationDirection = _pointTransform.forward;
 
@@ -47,5 +53,13 @@ public class CharacterController : MonoBehaviour
         Quaternion lookDir = Quaternion.LookRotation(targetDir);
         Quaternion targetRot = Quaternion.Slerp(transform.rotation, lookDir, _rotationSpeed);
         transform.rotation = targetRot;
+    }
+
+    public void PlayAnimation()
+    {
+        _moveAmount = Mathf.Clamp01(Mathf.Abs(_vertical) + Mathf.Abs(_horizontal));
+        //+_run * 1
+
+        _anim.SetFloat("Vertical", _moveAmount);
     }
 }

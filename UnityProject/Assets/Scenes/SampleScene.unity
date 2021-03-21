@@ -1012,6 +1012,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7507538016752020709, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
   m_PrefabInstance: {fileID: 7273678286264598796}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &919132148239740397 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7273678287186137521, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
+  m_PrefabInstance: {fileID: 7273678286264598796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3969247804881756140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,6 +1173,18 @@ PrefabInstance:
       propertyPath: _pointTransform
       value: 
       objectReference: {fileID: 1817727502}
+    - target: {fileID: 7273678287186137520, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
+      propertyPath: _playerTransform
+      value: 
+      objectReference: {fileID: 919132148239740397}
+    - target: {fileID: 7273678287186137521, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
+      propertyPath: m_Mass
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273678287186137521, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7273678287186137527, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -1178,7 +1195,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 35190045668664cb2832b1c378bebfe4, type: 2}
     - target: {fileID: 7273678287186137527, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507538016752020709, guid: 0ea3281c62d9b474baca65ec4cd3ed03, type: 3}
       propertyPath: m_Name

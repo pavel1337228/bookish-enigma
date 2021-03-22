@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Transform _pointTransform;
-    [SerializeField] private Rigidbody _playerTransform;
+    //[SerializeField] private Rigidbody _playerTransform;
     private float _horizontal, _vertical, _moveAmount;
     private Animator _anim;
 

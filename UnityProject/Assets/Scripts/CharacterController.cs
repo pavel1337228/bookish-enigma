@@ -28,28 +28,28 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _multiplayerz = 0f;
     [SerializeField] private float _multiplayerx = 0f;
 
-    private void FixedUpdate()
-    {
-        _vertical = Input.GetAxis("Vertical");
-        _horizontal = Input.GetAxis("Horizontal");
+    //private void FixedUpdate()
+    //{
+    //    _vertical = Input.GetAxis("Vertical");
+    //    _horizontal = Input.GetAxis("Horizontal");
 
-        _multiplayerz = Mathf.Lerp(0.2f, Mathf.Abs(_vertical), 50f * Time.deltaTime);
-        _multiplayerx = Mathf.Lerp(0.2f, Mathf.Abs(_horizontal), 50f * Time.deltaTime);
-        //_playerTransform.drag = Mathf.Lerp(3f, 2.5f * Mathf.Abs(_vertical), 20f *_vertical * Time.deltaTime);
+    //    _multiplayerz = Mathf.Lerp(0.2f, Mathf.Abs(_vertical), 50f * Time.deltaTime);
+    //    _multiplayerx = Mathf.Lerp(0.2f, Mathf.Abs(_horizontal), 50f * Time.deltaTime);
+    //    //_playerTransform.drag = Mathf.Lerp(3f, 2.5f * Mathf.Abs(_vertical), 20f *_vertical * Time.deltaTime);
 
 
-        if ((Mathf.Abs(_vertical) > 0f) & (Mathf.Abs(_horizontal) > 0f))
-        {
-            _playerTransform.AddForce(Vector3.forward * _vertical * Time.deltaTime * (_multiplayerz / 1.35f));
-            _playerTransform.AddForce(Vector3.right * _horizontal * Time.deltaTime * (_multiplayerx / 1.35f));
-        }
-        else
-        {
-            _playerTransform.AddForce(Vector3.forward * _vertical * Time.deltaTime * _multiplayerz);
-            _playerTransform.AddForce(Vector3.right * _horizontal * Time.deltaTime * _multiplayerx);
-        }
+    //    if ((Mathf.Abs(_vertical) > 0f) & (Mathf.Abs(_horizontal) > 0f))
+    //    {
+    //        _playerTransform.AddForce(Vector3.forward * _vertical * Time.deltaTime * (_multiplayerz / 1.35f));
+    //        _playerTransform.AddForce(Vector3.right * _horizontal * Time.deltaTime * (_multiplayerx / 1.35f));
+    //    }
+    //    else
+    //    {
+    //        _playerTransform.AddForce(Vector3.forward * _vertical * Time.deltaTime * _multiplayerz);
+    //        _playerTransform.AddForce(Vector3.right * _horizontal * Time.deltaTime * _multiplayerx);
+    //    }
 
-    }
+    //}
 
     public void Moving()
     {

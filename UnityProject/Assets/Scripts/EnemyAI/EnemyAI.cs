@@ -9,16 +9,22 @@ public class EnemyAI : MonoBehaviour
     private Transform _target;
     [SerializeField] private float _turnSpeed;
 
+    public Transform Target;
+    public GameObject MainPers;
+
     private Animator _anim;
+
+    private AttackAI _attackAI;
 
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _attackAI = GetComponent<AttackAI>();
     }
 
     private void FixedUpdate()
     {
-        if (_mainPers != null)
+        if (_mainPers != null && _attackAI.Attacking != true)
         {
             _target = _mainPers.transform;
 
@@ -27,6 +33,8 @@ public class EnemyAI : MonoBehaviour
         else
         {
             _target = null;
+
+            _anim.SetFloat("Vertical", 0);
         }
 
         if (_target != null)
@@ -36,6 +44,11 @@ public class EnemyAI : MonoBehaviour
             Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _turnSpeed).eulerAngles;
 
             transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+            if (Target == null)
+            {
+                GetTarget();
+            }
         }
     }
 
@@ -44,6 +57,21 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.tag == "MainPers")
         {
             _mainPers = other.gameObject;
+
+            if (MainPers == null)
+            {
+                GetMainPers();
+            }
         }
+    }
+
+    private void GetTarget()
+    {
+        Target = _target;
+    }
+
+    private void GetMainPers()
+    {
+        MainPers = _mainPers;
     }
 }

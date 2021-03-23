@@ -28,10 +28,13 @@ public class CharacterController : MonoBehaviour
 
     public void Moving()
     {
-        //_vertical = Input.GetAxis("Vertical");
-        //_horizontal = Input.GetAxis("Horizontal");
-        _vertical = Joystick.Vertical;
-        _horizontal = Joystick.Horizontal;
+        // для удобного теста на компе (потом убрать)
+        _vertical = Input.GetAxis("Vertical");
+        _horizontal = Input.GetAxis("Horizontal");
+        //
+
+        //_vertical = Joystick.Vertical;
+        //_horizontal = Joystick.Horizontal;
     
 
         Vector3 moveDir = _pointTransform.forward * _vertical;

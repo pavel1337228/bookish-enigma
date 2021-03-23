@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private JoystickController Joystick;
+
     [SerializeField] private Transform _pointTransform;
     private float _horizontal, _vertical, _moveAmount;
     private Animator _anim;
@@ -26,9 +28,10 @@ public class CharacterController : MonoBehaviour
 
     public void Moving()
     {
-        _vertical = Input.GetAxis("Vertical");
-        _horizontal = Input.GetAxis("Horizontal");
-
+        //_vertical = Input.GetAxis("Vertical");
+        //_horizontal = Input.GetAxis("Horizontal");
+        _vertical = Joystick.Vertical;
+        _horizontal = Joystick.Horizontal;
     
 
         Vector3 moveDir = _pointTransform.forward * _vertical;

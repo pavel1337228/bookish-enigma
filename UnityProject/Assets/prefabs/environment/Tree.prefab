@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7635638500306936944}
   - component: {fileID: 5482917696139613380}
   - component: {fileID: 2007444665693381542}
+  - component: {fileID: 1198531039218672378}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -127,6 +128,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &1198531039218672378
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364332506701496556}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.39858124
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5482917696139613380}
+  m_Enabled: 1
 --- !u!1 &8754076347805326050
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +159,7 @@ GameObject:
   - component: {fileID: 30122529945324653}
   - component: {fileID: 3525422653080391146}
   - component: {fileID: 3452517196707097709}
+  - component: {fileID: 515214738708310130}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -222,3 +243,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &515214738708310130
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754076347805326050}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.25333643
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3525422653080391146}
+  m_Enabled: 1

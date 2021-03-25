@@ -588,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 1807916966365587893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.882, y: 0, z: 5.1735363}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
   m_Children:
   - {fileID: 7992771241012683665}
   - {fileID: 2715567800934956086}
@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 5
+  health: 0
   Target: {fileID: 0}
   MainPers: {fileID: 0}
 --- !u!135 &1573563004175406238

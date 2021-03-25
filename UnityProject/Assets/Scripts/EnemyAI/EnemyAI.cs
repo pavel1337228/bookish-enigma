@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        health = 100f;
+        health = 1f;
         _anim = GetComponent<Animator>();
         _attackAI = GetComponent<AttackAI>();
     }

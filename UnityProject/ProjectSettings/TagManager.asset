@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainPers
+  - Zombie
   layers:
   - Default
   - TransparentFX

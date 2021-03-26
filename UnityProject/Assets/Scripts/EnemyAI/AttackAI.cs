@@ -7,6 +7,7 @@ public class AttackAI : MonoBehaviour
     [SerializeField] private float _dist;
 
     private EnemyAI _enemy;
+    public GameObject scriptCC;
 
     public bool Attacking;
 
@@ -15,8 +16,8 @@ public class AttackAI : MonoBehaviour
     private void Start()
     {
         _enemy = GetComponent<EnemyAI>();
-
-        InvokeRepeating("DamageCharacter", 0f, 1f);
+        scriptCC = GameObject.FindGameObjectWithTag("MainPers");
+        InvokeRepeating("DamageCharacter", 0f, 3f);
     }
 
     private void FixedUpdate()
@@ -40,6 +41,7 @@ public class AttackAI : MonoBehaviour
     {
         if (Attacking == true)
         {
+            scriptCC.GetComponent<CharacterController>().health_player -= _damage;
             Debug.Log("Получай сука");
         }
     }

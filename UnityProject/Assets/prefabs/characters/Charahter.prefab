@@ -1765,8 +1765,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c622b3adbcf1180408d1520c9cfc609f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Joystick: {fileID: 0}
   _pointTransform: {fileID: 0}
   _rotationSpeed: 0.1
+  NickName: {fileID: 0}
+  health_player: 1
+  healthBarPlayer: {fileID: 0}
 --- !u!1 &5918465741100510975
 GameObject:
   m_ObjectHideFlags: 0

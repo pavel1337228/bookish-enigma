@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -18,12 +19,15 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+
+        _mainPers = GameObject.FindGameObjectWithTag("MainPers");
     }
 
     private void FixedUpdate()
     {
         Moving();
         PlayAnimation();
+        HealthBar();
     }
 
     public void Moving()
@@ -69,4 +73,24 @@ public class CharacterController : MonoBehaviour
 
         _anim.SetFloat("Vertical", _moveAmount);
     }
+
+    #region HealthBar
+
+    public Text NickName;
+    public float health_player = 1f;
+    public Slider healthBarPlayer;
+
+    private GameObject _mainPers;
+    public void HealthBar()
+    {
+        healthBarPlayer.value = health_player;
+
+        if (health_player <= 0f)
+        {
+            _mainPers.SetActive(false);
+        }
+    }
+
+
+    #endregion
 }

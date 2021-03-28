@@ -1,24 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-
-public class OpenInv : MonoBehaviour, IPointerDownHandler
+public class CloseInv : MonoBehaviour, IPointerDownHandler
 {
     private GameObject _button;
     private GameObject _ui;
-    
 
     private void Start()
     {
         _button = GameObject.FindGameObjectWithTag("inventory");
         _ui = GameObject.FindGameObjectWithTag("ui");
-        _button.SetActive(false);
-        _ui.SetActive(true);
+        _ui.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _button.SetActive(true);
-        _ui.SetActive(false);
+        _button.SetActive(false);
+        _ui.SetActive(true);
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Zombie
   - ui
   - inventory
+  - InvManager
   layers:
   - Default
   - TransparentFX

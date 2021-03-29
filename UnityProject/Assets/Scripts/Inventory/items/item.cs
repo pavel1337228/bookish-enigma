@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class item : MonoBehaviour
 {
@@ -9,6 +7,7 @@ public class item : MonoBehaviour
     public string Type;
     public int Id;
     [Multiline(5)] public string ItemDescription;
+
     public Sprite Icon;
     public string pathPrefab;
     public bool IsStacable;

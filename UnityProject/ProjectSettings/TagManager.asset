@@ -9,6 +9,9 @@ TagManager:
   - ui
   - inventory
   - InvManager
+  - Resource
+  - podsvetka
+  - ItemBase
   layers:
   - Default
   - TransparentFX

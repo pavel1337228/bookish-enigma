@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,12 +11,10 @@ public class HealthMobs : MonoBehaviour
     [SerializeField] private float _healthEnemy;
     public float minfloat;
     public int numberdist;
-
+    public float distanseStream = 25f;
 
     private void FixedUpdate()
     {
-
-
         #region Zombie UI + Health
         _enemy = GameObject.FindGameObjectsWithTag("Zombie");
         minfloat = 200f;
@@ -32,6 +29,7 @@ public class HealthMobs : MonoBehaviour
                 numberdist = i;
                 minfloat = Vector3.Distance(this.transform.position, _enemy[i].transform.position);
                 _healthEnemy = _enemy[i].GetComponent<EnemyAI>().health;
+
                 if (_healthEnemy <= 0f) {
                     Destroy(_enemy[i]);
                 }
@@ -76,9 +74,5 @@ public class HealthMobs : MonoBehaviour
                 }
             }
         }
-
-
     }
-
-    public float distanseStream = 25f;
 }

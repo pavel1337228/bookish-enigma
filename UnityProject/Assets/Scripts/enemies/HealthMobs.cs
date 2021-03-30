@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,31 +8,36 @@ public class HealthMobs : MonoBehaviour
     public GameObject enemyHealthBar;
     public Text type;
     public Text textHealth;
-    public GameObject[] _enemy;
+    public List<GameObject> _enemy = new List<GameObject>();
     [SerializeField] private float _healthEnemy;
     public float minfloat;
     public int numberdist;
-    public float distanseStream = 25f;
+    public float distanseStream = 30f;
 
     private void FixedUpdate()
     {
         #region Zombie UI + Health
-        _enemy = GameObject.FindGameObjectsWithTag("Zombie");
         minfloat = 200f;
-        for (int i = 0; i < _enemy.Length; i++)
-        {
-            if (minfloat < Vector3.Distance(this.transform.position, _enemy[i].transform.position))
-            {
-                continue;
-            }
-            else
-            {
-                numberdist = i;
-                minfloat = Vector3.Distance(this.transform.position, _enemy[i].transform.position);
-                _healthEnemy = _enemy[i].GetComponent<EnemyAI>().health;
 
-                if (_healthEnemy <= 0f) {
-                    Destroy(_enemy[i]);
+        if (_enemy.Count != 0)
+        {
+            
+            for (int i = 0; i < _enemy.Count; i++)
+            {
+                if (minfloat < Vector3.Distance(this.transform.position, _enemy[i].transform.position))
+                {
+                    continue;
+                }
+                else
+                {
+                    numberdist = i;
+                    minfloat = Vector3.Distance(this.transform.position, _enemy[i].transform.position);
+                    _healthEnemy = _enemy[i].GetComponent<Enemy>().Health;
+
+                    if (_healthEnemy <= 0f)
+                    {
+                        Destroy(_enemy[i]);
+                    }
                 }
             }
         }
@@ -41,10 +47,11 @@ public class HealthMobs : MonoBehaviour
             enemyHealthBar.GetComponent<Slider>().value = _healthEnemy;
             switch (_enemy[numberdist].tag)
             {
-                case "Zombie":type.text = "Зомби";
-                break;
+                case "Enemy":
+                    type.text = _enemy[numberdist].GetComponent<Enemy>().Name;
+                    break;
             }
-            textHealth.text = ""+(_healthEnemy * 100);
+            textHealth.text = "" + _healthEnemy;
             enemyHealthBar.SetActive(true);
         }
         else
@@ -53,7 +60,7 @@ public class HealthMobs : MonoBehaviour
         }
         #endregion
 
-        for (int i = 0; i < _enemy.Length; i++)
+        for (int i = 0; i < _enemy.Count; i++)
         {
             if (Vector3.Distance(this.transform.position, _enemy[i].transform.position) >= distanseStream)
             {
@@ -73,6 +80,22 @@ public class HealthMobs : MonoBehaviour
                         child.SetActive(true);
                 }
             }
+        } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            _enemy.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            _enemy.Remove(other.gameObject);
         }
     }
 }

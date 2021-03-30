@@ -30,15 +30,6 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (ToogleInv == true)
-        {
-            DisplayItems();
-            ToogleInv = false;
-        }
-    }
-
     public void TakeFood()
     { 
         for (int i = 0; i < CellContainer.transform.childCount; i++)

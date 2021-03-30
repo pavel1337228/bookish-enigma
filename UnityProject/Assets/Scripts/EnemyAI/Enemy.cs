@@ -6,4 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int ID;
     public string Name;
+    public string Description;
+    public float Health;
+    public float Damage;
 }

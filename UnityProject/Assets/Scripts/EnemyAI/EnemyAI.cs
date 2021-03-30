@@ -8,7 +8,6 @@ public class EnemyAI : MonoBehaviour
     private GameObject _mainPers;
     private Transform _target;
     [SerializeField] private float _turnSpeed;
-    public float health;
 
     public Transform Target;
     public GameObject MainPers;
@@ -19,16 +18,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        health = 1f;
         _anim = GetComponent<Animator>();
         _attackAI = GetComponent<AttackAI>();
     }
 
     private void FixedUpdate()
     {
-
-
-
         if (_mainPers != null && _attackAI.Attacking != true)
         {
             _target = _mainPers.transform;

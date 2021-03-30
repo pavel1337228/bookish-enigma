@@ -5,13 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainPers
-  - Zombie
   - ui
   - inventory
   - InvManager
   - Resource
   - podsvetka
   - ItemBase
+  - point
+  - Enemy
   layers:
   - Default
   - TransparentFX

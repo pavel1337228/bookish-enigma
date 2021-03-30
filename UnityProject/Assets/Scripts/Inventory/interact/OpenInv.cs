@@ -20,6 +20,6 @@ public class OpenInv : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         _button.SetActive(true);
-        _invManager.ToogleInv = true;
+        _invManager.DisplayItems();
     }
 }

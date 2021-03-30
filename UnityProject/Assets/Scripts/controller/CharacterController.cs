@@ -37,17 +37,19 @@ public class CharacterController : MonoBehaviour
         //_horizontal = Input.GetAxis("Horizontal");
         //
 
-        _vertical = Joystick.Vertical;
-        _horizontal = Joystick.Horizontal;
+        _vertical = Joystick._input.y;
+        _horizontal = Joystick._input.x;
 
+        if (Joystick._input.x != 0 || Joystick._input.y != 0)
+        {
+            Vector3 moveDir = _pointTransform.forward * _vertical;
+            moveDir += _pointTransform.right * _horizontal;
+            moveDir.Normalize();
+            _moveDirection = moveDir;
+            _rotationDirection = _pointTransform.forward;
 
-        Vector3 moveDir = _pointTransform.forward * _vertical;
-        moveDir += _pointTransform.right * _horizontal;
-        moveDir.Normalize();
-        _moveDirection = moveDir;
-        _rotationDirection = _pointTransform.forward;
-
-        Rotation();
+            Rotation();
+        }
     }
 
     public void Rotation()
@@ -77,7 +79,7 @@ public class CharacterController : MonoBehaviour
     #region HealthBar
 
     public Text NickName;
-    public float health_player = 1f;
+    public float health_player = 100f;
     public Slider healthBarPlayer;
 
     private GameObject _mainPers;

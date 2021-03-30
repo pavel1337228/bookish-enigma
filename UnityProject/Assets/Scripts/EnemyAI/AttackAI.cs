@@ -16,6 +16,8 @@ public class AttackAI : MonoBehaviour
     private void Start()
     {
         _enemy = GetComponent<EnemyAI>();
+        _damage = GetComponent<Enemy>().Damage;
+
         scriptCC = GameObject.FindGameObjectWithTag("MainPers");
         InvokeRepeating("DamageCharacter", 0f, 3f);
     }

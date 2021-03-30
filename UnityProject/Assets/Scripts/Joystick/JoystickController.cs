@@ -11,13 +11,6 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     public Vector2 _input;
 
-    private void Update()
-    {
-        Vert();
-
-        Hor();
-    }
-
     private void Start()
     {
         _joystickBG = GetComponent<Image>();
@@ -49,15 +42,5 @@ public class JoystickController : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         _input = Vector2.zero;
         _joystick.rectTransform.anchoredPosition = Vector2.zero;
-    }
-
-    public void Hor()
-    {
-        Horizontal = _input.x;
-    }
-
-    public void Vert()
-    {
-        Vertical = _input.y;
     }
 }

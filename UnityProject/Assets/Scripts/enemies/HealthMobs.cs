@@ -8,21 +8,26 @@ public class HealthMobs : MonoBehaviour
     public GameObject enemyHealthBar;
     public Text type;
     public Text textHealth;
-    public List<GameObject> _enemy = new List<GameObject>();
+    public GameObject[] _enemy;
     [SerializeField] private float _healthEnemy;
     public float minfloat;
     public int numberdist;
-    public float distanseStream = 30f;
+    public float distanseStream;
+
+    private void Start()
+    {
+        _enemy = GameObject.FindGameObjectsWithTag("Enemy");
+    }
 
     private void FixedUpdate()
     {
         #region Zombie UI + Health
         minfloat = 200f;
 
-        if (_enemy.Count != 0)
+        if (_enemy.Length != 0)
         {
             
-            for (int i = 0; i < _enemy.Count; i++)
+            for (int i = 0; i < _enemy.Length; i++)
             {
                 if (minfloat < Vector3.Distance(this.transform.position, _enemy[i].transform.position))
                 {
@@ -60,7 +65,7 @@ public class HealthMobs : MonoBehaviour
         }
         #endregion
 
-        for (int i = 0; i < _enemy.Count; i++)
+        for (int i = 0; i < _enemy.Length; i++)
         {
             if (Vector3.Distance(this.transform.position, _enemy[i].transform.position) >= distanseStream)
             {
@@ -83,19 +88,19 @@ public class HealthMobs : MonoBehaviour
         } 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Enemy")
-        {
-            _enemy.Add(other.gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Enemy")
+    //    {
+    //        _enemy.Add(other.gameObject);
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Enemy")
-        {
-            _enemy.Remove(other.gameObject);
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == "Enemy")
+    //    {
+    //        _enemy.Remove(other.gameObject);
+    //    }
+    //}
 }

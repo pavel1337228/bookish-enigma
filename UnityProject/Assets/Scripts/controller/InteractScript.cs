@@ -14,6 +14,7 @@ public class InteractScript : MonoBehaviour
     [SerializeField] private GameObject _target;
 
     [SerializeField] private GameObject _currentTarget;
+    [SerializeField] private Material _curTargColor;
 
     private float _minDist;
 
@@ -22,6 +23,7 @@ public class InteractScript : MonoBehaviour
         _invScript = GameObject.FindGameObjectWithTag("InvManager").GetComponent<inventoryScript>();
         _mainPers = GameObject.FindGameObjectWithTag("MainPers");
         _currentTarget = GameObject.FindGameObjectWithTag("podsvetka");
+        _curTargColor = _currentTarget.GetComponent<Material>();
 
         _targFlag = false;
     }
@@ -48,7 +50,7 @@ public class InteractScript : MonoBehaviour
             {
                 _target = _interactableObjects[0];
 
-                _currentTarget.transform.position = _target.transform.Find("point").transform.position;
+                //_currentTarget.transform.position = _target.transform.Find("point").transform.position;
             }
             else if (_interactableObjects.Count > 1)
             {
@@ -61,19 +63,19 @@ public class InteractScript : MonoBehaviour
                     {
                         _minDist = distance;
                         _target = _interactableObjects[i].gameObject;
-                        _currentTarget.transform.position = _target.transform.Find("point").transform.position;
+                        //_currentTarget.transform.position = _target.transform.Find("point").transform.position;
                     }
                 }
             }
         }
         else if (_interactableObjects.Count == 0 && _target != null)
         {
-            _currentTarget.transform.position = GameObject.FindGameObjectWithTag("ItemBase").transform.position;
+            //_currentTarget.transform.position = GameObject.FindGameObjectWithTag("ItemBase").transform.position;
             _target = null;
         }
         else if (_target == null)
         {
-            _currentTarget.transform.position = GameObject.FindGameObjectWithTag("ItemBase").transform.position;
+            //_currentTarget.transform.position = GameObject.FindGameObjectWithTag("ItemBase").transform.position;
         }
     }
 
